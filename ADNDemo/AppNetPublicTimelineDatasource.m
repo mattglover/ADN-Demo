@@ -9,19 +9,25 @@
 #import "AppNetPublicTimelineDatasource.h"
 #import "ADNHTTPClient.h"
 #import "ADNPostEntry.h"
+#import "ADNPostEntryCell.h"
+
+#define TEXT_LABEL_MAX_WIDTH 230.0f // Want to allow space for VericalScroller (previously 240.0f
 
 @interface AppNetPublicTimelineDatasource()
 @property (nonatomic, strong) NSArray *posts;
+@property (nonatomic, strong) NSMutableArray *textLabels;
 @end
 
 @implementation AppNetPublicTimelineDatasource
 @synthesize posts = _posts;
+@synthesize textLabels = _textLabels;
 
 - (id)init {
   self = [super init];
   
   if (self) {
-    self.posts = @[];
+    _posts = @[];
+    _textLabels = [NSMutableArray array];
   }
   return self;
 }
@@ -31,18 +37,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+  static NSString *CellIdentifier = @"ADNPostEntryCustomCell";
   
-  static NSString *CellIdentifier = @"Cell";
-  
-  UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  ADNPostEntryCell *cell = (ADNPostEntryCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if(cell == nil){
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+		cell = [[ADNPostEntryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 	}
   
   ADNPostEntry *postEntry = [self.posts objectAtIndex:indexPath.row];
-  [cell.textLabel setText:postEntry.name];
+  UILabel *textLabel = [self.textLabels objectAtIndex:indexPath.row];
+  [cell setADNPostEntry:postEntry textLabel:textLabel];
   
   return cell;
+  
 }
 
 - (void)downloadLatestDataWithCompletion:(DownloadDataCompletionHandler)completion {
@@ -52,28 +61,40 @@
   [adnHTTPClient downloadADNPublicTimelineWithCompletion:^(id responseObject, NSError *error) {
     if (responseObject) {
       self.posts = responseObject;
+      [self populateTextLabels];
       completion(YES, nil);
     } else {
       completion(YES, error);
     }
   }];
+}
 
+- (void)populateTextLabels {
+  
+  [self.textLabels removeAllObjects];
+  
+  for (ADNPostEntry *postEntry in self.posts) {
+    UILabel *adnTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 30, TEXT_LABEL_MAX_WIDTH, 0)];
+    [adnTextLabel setNumberOfLines:0];
+    [adnTextLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    [adnTextLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    [adnTextLabel setMinimumFontSize:15.0f];
+    [adnTextLabel setBackgroundColor:[UIColor whiteColor]];
+    [adnTextLabel setText:postEntry.text];
+    [adnTextLabel sizeToFit];
+    
+    CGRect textLabelBounds = adnTextLabel.bounds;
+    textLabelBounds.size.width = MAX(textLabelBounds.size.width, TEXT_LABEL_MAX_WIDTH);
+    [adnTextLabel setBounds:textLabelBounds];
+    
+    [self.textLabels addObject:adnTextLabel];
+  }
 }
 
 - (CGFloat)calculatedHeightForCellAtIndexPath:(NSIndexPath *)indexPath {
   
-  CGFloat cellHeight = 100.0f;
-  
-  switch (indexPath.row) {
-    case 2:
-      cellHeight = 40;
-      break;
-      
-    default:
-      break;
-  }
-  
-  return cellHeight;
+  UILabel *adnTextLabel = [self.textLabels objectAtIndex:indexPath.row];
+  return adnTextLabel.bounds.size.height + adnTextLabel.frame.origin.y + 10; // 10 for some bottom-padding
 }
 
 @end

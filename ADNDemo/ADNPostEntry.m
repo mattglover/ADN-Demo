@@ -40,6 +40,9 @@
   return self;
 }
 
+-(NSString *)description {
+  return [NSString stringWithFormat:@"Name:%@, Username:%@, Text:%@, Date:%@", self.name, self.username, self.text, self.createdAt];
+}
 
 -(NSString *)name {
   // If No "name" is available then present Username
