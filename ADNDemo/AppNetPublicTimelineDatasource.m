@@ -7,6 +7,7 @@
 //
 
 #import "AppNetPublicTimelineDatasource.h"
+#import "ADNHTTPClient.h"
 
 @interface AppNetPublicTimelineDatasource()
 @property (nonatomic, strong) NSArray *posts;
@@ -44,13 +45,17 @@
 
 - (void)downloadLatestDataWithCompletion:(DownloadDataCompletionHandler)completion {
   
-  NSMutableArray *mutablePosts = [self.posts mutableCopy];
-  NSString *dummyPost = [NSString stringWithFormat:@"Hello ... %d", [self.posts count] + 1];
-  [mutablePosts addObject:dummyPost];
+  ADNHTTPClient *adnHTTPClient = [ADNHTTPClient sharedClient];
   
-  self.posts = mutablePosts;
-  
-  completion(YES, nil);
+  [adnHTTPClient downloadADNPublicTimelineWithCompletion:^(id responseObject, NSError *error) {
+    if (responseObject) {
+      self.posts = responseObject;
+      completion(YES, nil);
+    } else {
+      completion(YES, error);
+    }
+  }];
+
 }
 
 - (CGFloat)calculatedHeightForCellAtIndexPath:(NSIndexPath *)indexPath {

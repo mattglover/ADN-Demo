@@ -60,6 +60,11 @@
     if (success) {
       [self.pullToRefreshView finishLoading];
     }
+    
+    if (error) {
+      // Present Alert to user
+    }
+    
   }];
 }
 
