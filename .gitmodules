@@ -1,0 +1,3 @@
+[submodule "Vendor/SSPullToRefresh"]
+	path = Vendor/SSPullToRefresh
+	url = https://github.com/soffes/sspulltorefresh.git

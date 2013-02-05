@@ -42,13 +42,15 @@
   return cell;
 }
 
-- (void)downloadLatestData {
+- (void)downloadLatestDataWithCompletion:(DownloadDataCompletionHandler)completion {
   
   NSMutableArray *mutablePosts = [self.posts mutableCopy];
   NSString *dummyPost = [NSString stringWithFormat:@"Hello ... %d", [self.posts count] + 1];
   [mutablePosts addObject:dummyPost];
   
   self.posts = mutablePosts;
+  
+  completion(YES, nil);
 }
 
 - (CGFloat)calculatedHeightForCellAtIndexPath:(NSIndexPath *)indexPath {

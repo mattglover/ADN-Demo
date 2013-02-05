@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^DownloadDataCompletionHandler)(BOOL success, NSError *error);
+
 @interface AppNetPublicTimelineDatasource : NSObject <UITableViewDataSource>
 
-- (void)downloadLatestData;
+- (void)downloadLatestDataWithCompletion:(DownloadDataCompletionHandler)completion;
 - (CGFloat)calculatedHeightForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
