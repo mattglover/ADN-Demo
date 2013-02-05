@@ -32,12 +32,11 @@
     [_nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
     [_nameLabel setMinimumFontSize:14.0f];
     [self.contentView addSubview:_nameLabel];
-   
+    
     _avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, NAME_LABEL_Y, 60, 60)];
     [_avatarImageView setBackgroundColor:[UIColor whiteColor]];
     [_avatarImageView setContentMode:UIViewContentModeScaleToFill];
-    [_avatarImageView.layer setCornerRadius:10.0f];
-    [_avatarImageView.layer setMasksToBounds:YES];
+    [self maskImageView:_avatarImageView];
     [self.contentView addSubview:_avatarImageView];
     
     _adnTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 30, 0, 0)];
@@ -69,6 +68,20 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
   [super setSelected:selected animated:animated];
+}
+
+#pragma mark - Clipping ImageView Helper
+- (void)maskImageView:(UIImageView *)originalImageView {
+  
+  UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:originalImageView.bounds
+                                                 byRoundingCorners:UIRectCornerAllCorners
+                                                       cornerRadii:CGSizeMake(10.0, 10.0)];
+  
+  CAShapeLayer *maskLayer = [CAShapeLayer layer];
+  maskLayer.frame = originalImageView.bounds;
+  maskLayer.path = maskPath.CGPath;
+  
+  originalImageView.layer.mask = maskLayer;
 }
 
 @end
