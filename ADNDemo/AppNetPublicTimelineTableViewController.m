@@ -27,6 +27,7 @@
   self.appNetPublicTimelineDatasource = [[AppNetPublicTimelineDatasource alloc] init];
   
   self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+  [self.tableView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
   [self.tableView setDelegate:self];
   [self.tableView setDataSource:self.appNetPublicTimelineDatasource];
   [self.view addSubview:self.tableView];
