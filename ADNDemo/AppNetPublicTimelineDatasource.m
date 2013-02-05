@@ -8,6 +8,7 @@
 
 #import "AppNetPublicTimelineDatasource.h"
 #import "ADNHTTPClient.h"
+#import "ADNPostEntry.h"
 
 @interface AppNetPublicTimelineDatasource()
 @property (nonatomic, strong) NSArray *posts;
@@ -20,7 +21,7 @@
   self = [super init];
   
   if (self) {
-    self.posts = @[@"Hello ... 1", @"Hello ... 2", @"Hello ... 3", @"Hello ... 4"];
+    self.posts = @[];
   }
   return self;
 }
@@ -38,7 +39,8 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	}
   
-  [cell.textLabel setText:[self.posts objectAtIndex:indexPath.row]];
+  ADNPostEntry *postEntry = [self.posts objectAtIndex:indexPath.row];
+  [cell.textLabel setText:postEntry.name];
   
   return cell;
 }

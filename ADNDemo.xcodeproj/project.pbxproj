@@ -22,6 +22,7 @@
 		E2062B6316C131D300109E6B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2062B6216C131D300109E6B /* MobileCoreServices.framework */; };
 		E2062B6516C131D800109E6B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2062B6416C131D800109E6B /* SystemConfiguration.framework */; };
 		E2062B6816C1327200109E6B /* ADNHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E2062B6716C1327200109E6B /* ADNHTTPClient.m */; };
+		E2062B6E16C13B3100109E6B /* ADNPostEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E2062B6D16C13B3100109E6B /* ADNPostEntry.m */; };
 		E2AF158D16C122FC0077323D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AF158C16C122FC0077323D /* UIKit.framework */; };
 		E2AF158F16C122FC0077323D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AF158E16C122FC0077323D /* Foundation.framework */; };
 		E2AF159116C122FC0077323D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AF159016C122FC0077323D /* CoreGraphics.framework */; };
@@ -82,6 +83,8 @@
 		E2062B6416C131D800109E6B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2062B6616C1327200109E6B /* ADNHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNHTTPClient.h; sourceTree = "<group>"; };
 		E2062B6716C1327200109E6B /* ADNHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNHTTPClient.m; sourceTree = "<group>"; };
+		E2062B6C16C13B3100109E6B /* ADNPostEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNPostEntry.h; sourceTree = "<group>"; };
+		E2062B6D16C13B3100109E6B /* ADNPostEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNPostEntry.m; sourceTree = "<group>"; };
 		E2AF158916C122FC0077323D /* ADNDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADNDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2AF158C16C122FC0077323D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E2AF158E16C122FC0077323D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +176,24 @@
 				E2062B5816C131BB00109E6B /* UIImageView+AFNetworking.m */,
 			);
 			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		E2062B6A16C13AF200109E6B /* HTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				E2062B6616C1327200109E6B /* ADNHTTPClient.h */,
+				E2062B6716C1327200109E6B /* ADNHTTPClient.m */,
+			);
+			name = HTTPClient;
+			sourceTree = "<group>";
+		};
+		E2062B6B16C13B0800109E6B /* VO */ = {
+			isa = PBXGroup;
+			children = (
+				E2062B6C16C13B3100109E6B /* ADNPostEntry.h */,
+				E2062B6D16C13B3100109E6B /* ADNPostEntry.m */,
+			);
+			name = VO;
 			sourceTree = "<group>";
 		};
 		E2AF158016C122FC0077323D = {
@@ -274,8 +295,8 @@
 		E2AF15C316C1237D0077323D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E2062B6616C1327200109E6B /* ADNHTTPClient.h */,
-				E2062B6716C1327200109E6B /* ADNHTTPClient.m */,
+				E2062B6B16C13B0800109E6B /* VO */,
+				E2062B6A16C13AF200109E6B /* HTTPClient */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -433,6 +454,7 @@
 				E2062B6016C131BB00109E6B /* AFXMLRequestOperation.m in Sources */,
 				E2062B6116C131BB00109E6B /* UIImageView+AFNetworking.m in Sources */,
 				E2062B6816C1327200109E6B /* ADNHTTPClient.m in Sources */,
+				E2062B6E16C13B3100109E6B /* ADNPostEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

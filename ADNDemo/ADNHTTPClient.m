@@ -8,6 +8,7 @@
 
 #import "ADNHTTPClient.h"
 #import "AFJSONRequestOperation.h"
+#import "ADNPostEntry.h"
 
 #define BASE_URL @"https://alpha-api.app.net"
 
@@ -52,12 +53,17 @@
           NSArray *adnPostDictionarys = [responseDictionary objectForKey:@"data"];
           
           // Cycle through each adnPostDictionary and create ADNPost object
-          NSMutableArray *adnPosts = [[NSMutableArray alloc] initWithCapacity:[adnPostDictionarys count]];
+          NSMutableArray *adnPostEntrys = [[NSMutableArray alloc] initWithCapacity:[adnPostDictionarys count]];
           for (NSDictionary *adnPostDictionary in adnPostDictionarys) {
             
+            ADNPostEntry *postEntry = [[ADNPostEntry alloc] initWithDictionary:adnPostDictionary];
+            NSDate *createdAtDate = [self.dateFormatter dateFromString:[adnPostDictionary objectForKey:@"created_at"]];
+            [postEntry setCreatedAt:createdAtDate];
+            
+            [adnPostEntrys addObject:postEntry];
           }
           
-          completion(adnPosts, nil);
+          completion(adnPostEntrys, nil);
           
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
           completion(nil, error);
