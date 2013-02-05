@@ -38,7 +38,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+  
   static NSString *CellIdentifier = @"ADNPostEntryCustomCell";
   
   ADNPostEntryCell *cell = (ADNPostEntryCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -52,7 +52,6 @@
   [cell setADNPostEntry:postEntry textLabel:textLabel];
   
   return cell;
-  
 }
 
 - (void)downloadLatestDataWithCompletion:(DownloadDataCompletionHandler)completion {

@@ -19,35 +19,35 @@
 @synthesize adnTextLabel = _adnTextLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-  
-      _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(NAME_LABEL_X, NAME_LABEL_Y, self.contentView.bounds.size.width - NAME_LABEL_X , 20)];
-      [_nameLabel setTextColor:[UIColor darkTextColor]];
-      [_nameLabel setBackgroundColor:[UIColor clearColor]];
-      [_nameLabel setShadowColor:[UIColor whiteColor]];
-      [_nameLabel setShadowOffset:CGSizeMake(0, 1)];
-      [_nameLabel setTextAlignment:UITextAlignmentLeft];
-      [_nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
-      [_nameLabel setMinimumFontSize:14.0f];
-      [self.contentView addSubview:_nameLabel];
- 
-      _adnTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 30, 0, 0)];
-      [_adnTextLabel setNumberOfLines:0];
-      [_adnTextLabel setLineBreakMode:NSLineBreakByWordWrapping];
-      [_adnTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:14]];
-      [_adnTextLabel setMinimumFontSize:14.0f];
-      [_adnTextLabel setBackgroundColor:[UIColor clearColor]];
-      [self.contentView addSubview:_adnTextLabel];
+  self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+  if (self) {
     
-    }
-    return self;
+    _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(NAME_LABEL_X, NAME_LABEL_Y, self.contentView.bounds.size.width - NAME_LABEL_X , 20)];
+    [_nameLabel setTextColor:[UIColor darkTextColor]];
+    [_nameLabel setBackgroundColor:[UIColor clearColor]];
+    [_nameLabel setShadowColor:[UIColor whiteColor]];
+    [_nameLabel setShadowOffset:CGSizeMake(0, 1)];
+    [_nameLabel setTextAlignment:UITextAlignmentLeft];
+    [_nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
+    [_nameLabel setMinimumFontSize:14.0f];
+    [self.contentView addSubview:_nameLabel];
+    
+    _adnTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 30, 0, 0)];
+    [_adnTextLabel setNumberOfLines:0];
+    [_adnTextLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    [_adnTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:14]];
+    [_adnTextLabel setMinimumFontSize:14.0f];
+    [_adnTextLabel setBackgroundColor:[UIColor clearColor]];
+    [self.contentView addSubview:_adnTextLabel];
+  }
+  
+  return self;
 }
 
 - (void)setADNPostEntry:(ADNPostEntry *)postEntry textLabel:(UILabel *)textLabel {
   
   _adnPostEntry = postEntry;
-
+  
   [self.adnTextLabel setFrame:CGRectMake(80, 30, textLabel.bounds.size.width, textLabel.bounds.size.height)];
   self.adnTextLabel.text = textLabel.text;
   
@@ -59,7 +59,7 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+  [super setSelected:selected animated:animated];
 }
 
 @end
