@@ -22,10 +22,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
   
-   //   self.statusImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-   //   [self.contentView addSubview:self.statusImageView];
-   //   [self.statusImageView setBackgroundColor:[UIColor whiteColor]];
-      
       _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(NAME_LABEL_X, NAME_LABEL_Y, self.contentView.bounds.size.width - NAME_LABEL_X , 20)];
       [_nameLabel setTextColor:[UIColor darkTextColor]];
       [_nameLabel setBackgroundColor:[UIColor clearColor]];
@@ -33,13 +29,13 @@
       [_nameLabel setShadowOffset:CGSizeMake(0, 1)];
       [_nameLabel setTextAlignment:UITextAlignmentLeft];
       [_nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
-      [_adnTextLabel setMinimumFontSize:14.0f];
+      [_nameLabel setMinimumFontSize:14.0f];
       [self.contentView addSubview:_nameLabel];
  
       _adnTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 30, 0, 0)];
       [_adnTextLabel setNumberOfLines:0];
       [_adnTextLabel setLineBreakMode:NSLineBreakByWordWrapping];
-      [_adnTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14]];
+      [_adnTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:14]];
       [_adnTextLabel setMinimumFontSize:14.0f];
       [_adnTextLabel setBackgroundColor:[UIColor clearColor]];
       [self.contentView addSubview:_adnTextLabel];

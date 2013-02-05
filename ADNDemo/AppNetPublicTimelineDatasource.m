@@ -12,6 +12,7 @@
 #import "ADNPostEntryCell.h"
 
 #define TEXT_LABEL_MAX_WIDTH 230.0f // Want to allow space for VericalScroller (previously 240.0f
+#define CELL_MINIMUM_HEIGHT 100.0f // Image might be bigger than Name and ADN Text
 
 @interface AppNetPublicTimelineDatasource()
 @property (nonatomic, strong) NSArray *posts;
@@ -77,9 +78,9 @@
     UILabel *adnTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 30, TEXT_LABEL_MAX_WIDTH, 0)];
     [adnTextLabel setNumberOfLines:0];
     [adnTextLabel setLineBreakMode:NSLineBreakByWordWrapping];
-    [adnTextLabel setFont:[UIFont systemFontOfSize:16.0f]];
-    [adnTextLabel setMinimumFontSize:15.0f];
-    [adnTextLabel setBackgroundColor:[UIColor whiteColor]];
+    [adnTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:14]];
+    [adnTextLabel setMinimumFontSize:14.0f];
+    [adnTextLabel setBackgroundColor:[UIColor clearColor]];
     [adnTextLabel setText:postEntry.text];
     [adnTextLabel sizeToFit];
     
@@ -94,7 +95,8 @@
 - (CGFloat)calculatedHeightForCellAtIndexPath:(NSIndexPath *)indexPath {
   
   UILabel *adnTextLabel = [self.textLabels objectAtIndex:indexPath.row];
-  return adnTextLabel.bounds.size.height + adnTextLabel.frame.origin.y + 10; // 10 for some bottom-padding
+  CGFloat calculatedHeight = adnTextLabel.bounds.size.height + adnTextLabel.frame.origin.y + 10; // 10 for some bottom-padding
+  return MAX(CELL_MINIMUM_HEIGHT, calculatedHeight);
 }
 
 @end
