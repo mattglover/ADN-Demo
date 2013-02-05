@@ -12,12 +12,12 @@
 @property (nonatomic, strong) NSArray *posts;
 @end
 
-
 @implementation AppNetPublicTimelineDatasource
 @synthesize posts = _posts;
 
 - (id)init {
   self = [super init];
+  
   if (self) {
     self.posts = @[@"Hello ... 1", @"Hello ... 2", @"Hello ... 3", @"Hello ... 4"];
   }

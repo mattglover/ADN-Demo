@@ -41,6 +41,7 @@
 
 
 #pragma mark - TableView delegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   // Ask Datasource for the height of this row's Cell
   return [self.appNetPublicTimelineDatasource calculatedHeightForCellAtIndexPath:indexPath];
@@ -69,6 +70,5 @@
 - (NSDate *)pullToRefreshViewLastUpdatedAt:(SSPullToRefreshView *)view {
   return [NSDate date];
 }
-
 
 @end
