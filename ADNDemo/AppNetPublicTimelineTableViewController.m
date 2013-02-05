@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) AppNetPublicTimelineDatasource *appNetPublicTimelineDatasource;
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
+@property (nonatomic, assign, getter = hasInitialLoad) BOOL initialLoad;
 @end
 
 @implementation AppNetPublicTimelineTableViewController
@@ -23,6 +24,8 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  [self setTitle:@"Public Timeline"];
   
   self.appNetPublicTimelineDatasource = [[AppNetPublicTimelineDatasource alloc] init];
   
@@ -40,6 +43,14 @@
   [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+ 
+  if (![self hasInitialLoad]) {
+    self.initialLoad = YES;
+    [self.pullToRefreshView startLoadingAndExpand:YES animated:YES];
+  }
+}
 
 #pragma mark - TableView delegate
 

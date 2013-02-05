@@ -33,7 +33,7 @@
     [_nameLabel setMinimumFontSize:14.0f];
     [self.contentView addSubview:_nameLabel];
    
-    _avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, NAME_LABEL_Y, 60, 60)];
+    _avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, NAME_LABEL_Y, 60, 60)];
     [_avatarImageView setBackgroundColor:[UIColor clearColor]];
     [_avatarImageView setContentMode:UIViewContentModeScaleToFill];
     [_avatarImageView.layer setCornerRadius:10.0f];
@@ -64,6 +64,7 @@
 
 -(void)prepareForReuse {
   [self.nameLabel setText:@""];
+  [self.adnTextLabel setText:@""];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
