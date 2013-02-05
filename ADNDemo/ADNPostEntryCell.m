@@ -8,6 +8,7 @@
 
 #import "ADNPostEntryCell.h"
 #import "ADNPostEntry.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define NAME_LABEL_X 80.0f
 #define NAME_LABEL_Y 10.0f
@@ -35,6 +36,8 @@
     _avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, NAME_LABEL_Y, 60, 60)];
     [_avatarImageView setBackgroundColor:[UIColor clearColor]];
     [_avatarImageView setContentMode:UIViewContentModeScaleToFill];
+    [_avatarImageView.layer setCornerRadius:10.0f];
+    [_avatarImageView.layer setMasksToBounds:YES];
     [self.contentView addSubview:_avatarImageView];
     
     _adnTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 30, 0, 0)];
