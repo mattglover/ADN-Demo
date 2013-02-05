@@ -112,8 +112,6 @@
 		E2AF159216C122FC0077323D /* ADNDemo */ = {
 			isa = PBXGroup;
 			children = (
-				E2AF159B16C122FC0077323D /* AppDelegate.h */,
-				E2AF159C16C122FC0077323D /* AppDelegate.m */,
 				E2AF159316C122FC0077323D /* Supporting Files */,
 			);
 			path = ADNDemo;
@@ -122,6 +120,8 @@
 		E2AF159316C122FC0077323D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E2AF159B16C122FC0077323D /* AppDelegate.h */,
+				E2AF159C16C122FC0077323D /* AppDelegate.m */,
 				E2AF159416C122FC0077323D /* ADNDemo-Info.plist */,
 				E2AF159516C122FC0077323D /* InfoPlist.strings */,
 				E2AF159816C122FC0077323D /* main.m */,
