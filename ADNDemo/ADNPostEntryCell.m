@@ -25,7 +25,7 @@
     
     _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(NAME_LABEL_X, NAME_LABEL_Y, self.contentView.bounds.size.width - NAME_LABEL_X , 20)];
     [_nameLabel setTextColor:[UIColor darkTextColor]];
-    [_nameLabel setBackgroundColor:[UIColor clearColor]];
+    [_nameLabel setBackgroundColor:[UIColor whiteColor]];
     [_nameLabel setShadowColor:[UIColor whiteColor]];
     [_nameLabel setShadowOffset:CGSizeMake(0, 1)];
     [_nameLabel setTextAlignment:UITextAlignmentLeft];
@@ -34,7 +34,7 @@
     [self.contentView addSubview:_nameLabel];
    
     _avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, NAME_LABEL_Y, 60, 60)];
-    [_avatarImageView setBackgroundColor:[UIColor clearColor]];
+    [_avatarImageView setBackgroundColor:[UIColor whiteColor]];
     [_avatarImageView setContentMode:UIViewContentModeScaleToFill];
     [_avatarImageView.layer setCornerRadius:10.0f];
     [_avatarImageView.layer setMasksToBounds:YES];
@@ -45,7 +45,7 @@
     [_adnTextLabel setLineBreakMode:NSLineBreakByWordWrapping];
     [_adnTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:14]];
     [_adnTextLabel setMinimumFontSize:14.0f];
-    [_adnTextLabel setBackgroundColor:[UIColor clearColor]];
+    [_adnTextLabel setBackgroundColor:[UIColor whiteColor]];
     [self.contentView addSubview:_adnTextLabel];
   }
   
