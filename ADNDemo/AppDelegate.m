@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppNetPublicTimelineTableViewController.h"
 
 @implementation AppDelegate
 
@@ -15,6 +16,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+  
+  AppNetPublicTimelineTableViewController *appNetTableViewController = [[AppNetPublicTimelineTableViewController alloc] init];
+  UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:appNetTableViewController];
+  [self.window setRootViewController:navigationController];
     [self.window makeKeyAndVisible];
     return YES;
 }

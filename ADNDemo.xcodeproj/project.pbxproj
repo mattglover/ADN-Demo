@@ -21,6 +21,7 @@
 		E2AF15AD16C122FD0077323D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AF158E16C122FC0077323D /* Foundation.framework */; };
 		E2AF15B516C122FD0077323D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2AF15B316C122FD0077323D /* InfoPlist.strings */; };
 		E2AF15B816C122FD0077323D /* ADNDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AF15B716C122FD0077323D /* ADNDemoTests.m */; };
+		E2AF15C816C123CB0077323D /* AppNetPublicTimelineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AF15C716C123CB0077323D /* AppNetPublicTimelineTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		E2AF15B416C122FD0077323D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E2AF15B616C122FD0077323D /* ADNDemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADNDemoTests.h; sourceTree = "<group>"; };
 		E2AF15B716C122FD0077323D /* ADNDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADNDemoTests.m; sourceTree = "<group>"; };
+		E2AF15C616C123CB0077323D /* AppNetPublicTimelineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppNetPublicTimelineTableViewController.h; sourceTree = "<group>"; };
+		E2AF15C716C123CB0077323D /* AppNetPublicTimelineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppNetPublicTimelineTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,9 @@
 		E2AF159216C122FC0077323D /* ADNDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E2AF15C216C123770077323D /* Vendor */,
+				E2AF15C316C1237D0077323D /* Model */,
+				E2AF15C116C123730077323D /* UI */,
 				E2AF159316C122FC0077323D /* Supporting Files */,
 			);
 			path = ADNDemo;
@@ -150,6 +156,37 @@
 				E2AF15B316C122FD0077323D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2AF15C116C123730077323D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E2AF15C416C1238E0077323D /* AppNetPublicTimelineTableViewController */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		E2AF15C216C123770077323D /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		E2AF15C316C1237D0077323D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E2AF15C416C1238E0077323D /* AppNetPublicTimelineTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E2AF15C616C123CB0077323D /* AppNetPublicTimelineTableViewController.h */,
+				E2AF15C716C123CB0077323D /* AppNetPublicTimelineTableViewController.m */,
+			);
+			name = AppNetPublicTimelineTableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +300,7 @@
 			files = (
 				E2AF159916C122FC0077323D /* main.m in Sources */,
 				E2AF159D16C122FC0077323D /* AppDelegate.m in Sources */,
+				E2AF15C816C123CB0077323D /* AppNetPublicTimelineTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +404,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ADNDemo/ADNDemo-Prefix.pch";
 				INFOPLIST_FILE = "ADNDemo/ADNDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -377,6 +416,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ADNDemo/ADNDemo-Prefix.pch";
 				INFOPLIST_FILE = "ADNDemo/ADNDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
