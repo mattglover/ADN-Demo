@@ -22,6 +22,7 @@
 		E2AF15B516C122FD0077323D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2AF15B316C122FD0077323D /* InfoPlist.strings */; };
 		E2AF15B816C122FD0077323D /* ADNDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AF15B716C122FD0077323D /* ADNDemoTests.m */; };
 		E2AF15C816C123CB0077323D /* AppNetPublicTimelineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AF15C716C123CB0077323D /* AppNetPublicTimelineTableViewController.m */; };
+		E2AF15CB16C125F60077323D /* AppNetPublicTimelineDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AF15CA16C125F60077323D /* AppNetPublicTimelineDatasource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		E2AF15B716C122FD0077323D /* ADNDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADNDemoTests.m; sourceTree = "<group>"; };
 		E2AF15C616C123CB0077323D /* AppNetPublicTimelineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppNetPublicTimelineTableViewController.h; sourceTree = "<group>"; };
 		E2AF15C716C123CB0077323D /* AppNetPublicTimelineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppNetPublicTimelineTableViewController.m; sourceTree = "<group>"; };
+		E2AF15C916C125F60077323D /* AppNetPublicTimelineDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppNetPublicTimelineDatasource.h; sourceTree = "<group>"; };
+		E2AF15CA16C125F60077323D /* AppNetPublicTimelineDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppNetPublicTimelineDatasource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,10 +186,28 @@
 		E2AF15C416C1238E0077323D /* AppNetPublicTimelineTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E2AF15CD16C126590077323D /* CustomCell */,
+				E2AF15CC16C1264A0077323D /* Datasource */,
 				E2AF15C616C123CB0077323D /* AppNetPublicTimelineTableViewController.h */,
 				E2AF15C716C123CB0077323D /* AppNetPublicTimelineTableViewController.m */,
 			);
 			name = AppNetPublicTimelineTableViewController;
+			sourceTree = "<group>";
+		};
+		E2AF15CC16C1264A0077323D /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				E2AF15C916C125F60077323D /* AppNetPublicTimelineDatasource.h */,
+				E2AF15CA16C125F60077323D /* AppNetPublicTimelineDatasource.m */,
+			);
+			name = Datasource;
+			sourceTree = "<group>";
+		};
+		E2AF15CD16C126590077323D /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +322,7 @@
 				E2AF159916C122FC0077323D /* main.m in Sources */,
 				E2AF159D16C122FC0077323D /* AppDelegate.m in Sources */,
 				E2AF15C816C123CB0077323D /* AppNetPublicTimelineTableViewController.m in Sources */,
+				E2AF15CB16C125F60077323D /* AppNetPublicTimelineDatasource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
