@@ -10,6 +10,7 @@
 #import "ADNHTTPClient.h"
 #import "ADNPostEntry.h"
 #import "ADNPostEntryCell.h"
+#import "UIImageView+AFNetworking.h"
 
 #define TEXT_LABEL_MAX_WIDTH 230.0f // Want to allow space for VericalScroller (previously 240.0f
 #define CELL_MINIMUM_HEIGHT 100.0f // Image might be bigger than Name and ADN Text
@@ -51,6 +52,13 @@
   UILabel *textLabel = [self.textLabels objectAtIndex:indexPath.row];
   [cell setADNPostEntry:postEntry textLabel:textLabel];
   
+  NSURL *avatarURL = [NSURL URLWithString:[postEntry avatarURL]];
+  NSURLRequest *avatarImageRequest = [[NSURLRequest alloc] initWithURL:avatarURL];
+  
+  [cell.avatarImageView setImageWithURLRequest:avatarImageRequest
+                              placeholderImage:nil
+                                       success:nil
+                                       failure:nil];
   return cell;
 }
 

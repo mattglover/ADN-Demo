@@ -40,11 +40,11 @@
   return self;
 }
 
--(NSString *)description {
+- (NSString *)description {
   return [NSString stringWithFormat:@"Name:%@, Username:%@, Text:%@, Date:%@", self.name, self.username, self.text, self.createdAt];
 }
 
--(NSString *)name {
+- (NSString *)name {
   // If No "name" is available then present Username
   NSString *name = _name;
   if (!_name) {
@@ -52,6 +52,10 @@
   }
   
   return name;
+}
+
+- (NSString *)avatarURL {
+  return [self.avatarImageDictionary objectForKey:@"url"];
 }
 
 @end

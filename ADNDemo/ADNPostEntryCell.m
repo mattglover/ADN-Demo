@@ -31,6 +31,11 @@
     [_nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
     [_nameLabel setMinimumFontSize:14.0f];
     [self.contentView addSubview:_nameLabel];
+   
+    _avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, NAME_LABEL_Y, 60, 60)];
+    [_avatarImageView setBackgroundColor:[UIColor clearColor]];
+    [_avatarImageView setContentMode:UIViewContentModeScaleToFill];
+    [self.contentView addSubview:_avatarImageView];
     
     _adnTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 30, 0, 0)];
     [_adnTextLabel setNumberOfLines:0];

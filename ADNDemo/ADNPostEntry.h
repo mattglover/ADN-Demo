@@ -19,4 +19,5 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 - (id)initWithName:(NSString *)name text:(NSString *)text username:(NSString *)username imageURL:(NSDictionary *)avatarImageDictionary createdAt:(NSDate *)createdAt;
 
+- (NSString *)avatarURL;
 @end
